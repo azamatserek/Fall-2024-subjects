@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Create Blog Post</title>
+    <title>Blog Post List</title>
 </head>
 <body>
-<h1>Create a New Blog Post</h1>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Submit</button>
-</form>
-<a href="{% url 'blog_post_list' %}">Back to Blog Post List</a>
+<h1>Blog Posts</h1>
+<ul>
+    {% for post in posts %}
+    <li><a href="{% url 'blog_post_detail' post.id %}">{{ post.title }}</a></li>
+    {% endfor %}
+</ul>
+<a href="{% url 'create_blog_post' %}">Create New Blog Post</a>
 </body>
 </html>

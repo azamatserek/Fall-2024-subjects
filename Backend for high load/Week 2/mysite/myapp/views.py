@@ -18,5 +18,4 @@ def create_blog_post(request):
             return redirect('blog_post_list')  # Redirect to the blog post list after saving
     else:
         form = BlogPostForm()
-
     return render(request, 'myapp/create_blog_post.html', {'form': form})
